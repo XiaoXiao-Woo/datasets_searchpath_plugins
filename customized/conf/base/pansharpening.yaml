@@ -1,0 +1,9 @@
+defaults:
+  - runtime
+
+task: "pansharpening"
+scale: [1]
+metrics: {"train": "loss", "test": "PSNR"}
+save_fmt: ["mat", "png"]  # options: mat, not mat
+test: "reduce"  # options: reduce, full experiment
+test_samples_per_gpu: 20

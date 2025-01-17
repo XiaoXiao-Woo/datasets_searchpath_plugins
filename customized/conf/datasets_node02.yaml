@@ -1,0 +1,248 @@
+hydra:
+  verbose: false
+  run:
+    dir: /home/dsq/nips/results/${base.task}/${dataset.train_name}/${model_type}_${experimental_desc} # ${now:%Y-%m-%d_%H-%M-%S}/ #_lr${args.lr}_k2_${args.k2}
+  sweep:
+    dir: /home/dsq/nips/results/${base.task}/${dataset.train_name}/${model_type}_${experimental_desc} # ${now:%Y-%m-%d_%H-%M-%S}/ #_lr${args.lr}_k2_${args.k2}
+    subdir: ./
+  job:
+    env_set:
+      OMP_NUM_THREADS: 1
+  job_logging:
+    level: INFO
+
+dataset:
+  # prefetch_data: false
+  dataset_cfg:
+    train: {}
+    val: {}
+    test: {}
+
+  heartHX_train_path:
+    source_path:
+      vi: /home/dsq/nips/datasets/heartHX/cine_64
+      vi_mask: /home/dsq/nips/datasets/heartHX/cine_mask
+      ir: /home/dsq/nips/datasets/heartHX/T1
+      ir_mask: /home/dsq/nips/datasets/heartHX/T1_mask
+    pattern:
+      { "vi": "*.dcm", "ir": "*.dcm", "vi_mask": "*.png", "ir_mask": "*.png" }
+
+  heartHX_val_path:
+    vi: null
+    ir: null
+  heartHX_test_path:
+    source_path:
+      vi: /home/dsq/nips/LLM/datasets/heartHX/cine_64
+      ir: /home/dsq/nips/LLM/datasets/heartHX/T1
+    pattern:
+      { "vi": "*.dcm", "ir": "*.dcm", "vi_mask": "*.png", "ir_mask": "*.png" }
+
+  wv3_train_path: "/home/dsq/nips/datasets/PanCollection/training_data/train_wv3_9714.h5"
+  wv3_val_path: "/home/dsq/nips/datasets/PanCollection/training_data/valid_wv3.h5"
+  wv3_test_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_wv3_multiExm1.h5"
+  wv3_full_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_wv3_OrigScale_multiExm1.h5"
+
+  gf2_train_path: "/home/dsq/nips/datasets/PanCollection/training_data/train_gf2_19809.h5"
+  gf2_val_path: "/home/dsq/nips/datasets/PanCollection/training_data/valid_gf2_19809.h5"
+  gf2_test_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_gf2_multiExm1.h5"
+  gf2_full_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_gf2_OrigScale_multiExm1.h5"
+
+  qb_train_path: "/home/dsq/nips/datasets/PanCollection/training_data/train_qb_17139.h5"
+  qb_val_path: "/home/dsq/nips/datasets/PanCollection/training_data/valid_qb_17139.h5"
+  qb_test_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_qb_multiExm1.h5"
+  qb_full_path: "/home/dsq/nips/datasets/PanCollection/test_data/test_qb_OrigScale_multiExm1.h5"
+
+  cave_x4_train_path: "/home/dsq/nips/datasets/hisr/cave/training_data/train_cave(with_up)x4_rgb.h5"
+  cave_x4_val_path: null
+  cave_x4_test_path: "/home/dsq/nips/datasets/hisr/cave/test_data/test_cave(with_up)x4_rgb.h5"
+  harvard_x4_train_path: null
+  harvard_x4_val_path: null
+  harvard_x4_test_path: null
+  GF5_GF1_train_path: null
+  GF5_GF1_val_path: null
+  GF5_GF1_test_path: null
+
+  TNO_train_path:
+    source_path:
+      vi: null
+      ir: null
+  TNO_val_path:
+    source_path:
+      vi: null
+      ir: null
+  TNO_test_path:
+    source_path:
+      vi: null
+      ir: null
+  TNO_full_path:
+    source_path:
+      vi: null
+      ir: null
+
+  rs_train_path:
+    source_path:
+      ir: null
+      vi: null
+  rs_val_path:
+    source_path:
+      ir: null
+      vi: null
+  rs_test_path:
+    source_path:
+      ir: null
+      vi: null
+  rs_full_path:
+    source_path:
+      ir: null
+      vi: null
+
+  harvard_ct_mri_train_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_ct_mri_val_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_ct_mri_test_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_ct_mri_full_path:
+    source_path:
+      vi: null
+      ir: null
+
+  harvard_pect_mri_train_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_pect_mri_val_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_pect_mri_test_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_pect_mri_full_path:
+    source_path:
+      vi: null
+      ir: null
+
+  harvard_spect_mri_train_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_spect_mri_val_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_spect_mri_test_path:
+    source_path:
+      vi: null
+      ir: null
+  harvard_spect_mri_full_path:
+    source_path:
+      vi: null
+      ir: null
+
+  mff_whu_train_path:
+    source_path:
+      near: /home/dsq/nips/datasets/MFF/MFF-WHU/source_1 # NEAR vi
+      far: /home/dsq/nips/datasets/MFF/MFF-WHU/source_2 # FAR ir
+      gt: /home/dsq/nips/datasets/MFF/MFF-WHU/full_clear
+    dataset_kwargs:
+      convert_color: ["ycbcr"]
+    extra_kwargs:
+      no_split: true
+      size: 64
+
+  mff_whu_val_path:
+    source_path:
+      near: null
+      far: null
+    kwargs:
+      convert_color: ["ycbcr"]
+
+  mff_lytro_test_path:
+    source_path:
+      near: /home/dsq/nips/datasets/MFF/MFF-Lytro/NEAR
+      far: /home/dsq/nips/datasets/MFF/MFF-Lytro/FAR
+    kwargs:
+      no_split: false
+      convert_color: ["ycbcr"]
+    prefetch_data: true
+
+  mef_sice_train_path:
+    source_path:
+      over: /home/dsq/nips/datasets/MEF/SICE/over # over lms
+      under: /home/dsq/nips/datasets/MEF/SICE/under # under pan
+      gt: /home/dsq/nips/datasets/MEF/SICE/GT
+    prefetch_data: true
+
+  mef_sice_val_path:
+    source_path:
+      over: /home/dsq/nips/datasets/MEF/SICE/over
+      under: /home/dsq/nips/datasets/MEF/SICE/under
+      gt: /home/dsq/nips/datasets/MEF/SICE/GT
+    prefetch_data: true
+
+  mef_sice_test_path:
+    source_path:
+      over: /home/dsq/nips/datasets/MEF/SICE/over
+      under: /home/dsq/nips/datasets/MEF/SICE/under
+      gt: /home/dsq/nips/datasets/MEF/SICE/GT
+    prefetch_data: true
+
+  mefb_test_path:
+    source_path:
+      over: /home/dsq/nips/datasets/MEF/MEFB/vi # over
+      under: /home/dsq/nips/datasets/MEF/MEFB/ir # under
+    prefetch_data: true
+
+  train_path:
+    div2k:
+      lq_folder: /home/dsq/nips/datasets/sisr/DIV2K_train_LR_bicubic/X4
+      gt_folder: /home/dsq/nips/datasets/sisr/DIV2K_train_HR
+      data_range: 1-800
+      io_backend: "disk" # disk or lmdb
+    flickr2k:
+      lq_folder: /home/dsq/nips/datasets/sisr/Flickr2K/Flickr2K_LR_bicubic/X4
+      gt_folder: /home/dsq/nips/datasets/sisr/Flickr2K/Flickr2K_HR
+      data_range: 1-2650
+      io_backend: "disk" # disk or lmdb
+
+  val_path:
+    div2k:
+      lq_folder: null
+      gt_folder: null
+  test_path:
+    set5:
+      lq_folder: /home/dsq/nips/datasets/sisr/test_data/Set5/LRbicx4
+      gt_folder: /home/dsq/nips/datasets/sisr/test_data/Set5/GTmod12
+      io_backend: "disk" # disk or lmdb
+
+    set14:
+      lq_folder: /home/dsq/nips/datasets/sisr/test_data/Set14/LRbicx4
+      gt_folder: /home/dsq/nips/datasets/sisr/test_data/Set14/GTmod12
+      io_backend: "disk" # disk or lmdb
+
+    BSDS100:
+      lq_folder: /home/dsq/nips/datasets/sisr/test_data/BSDS100/LRbicx4
+      gt_folder: /home/dsq/nips/datasets/sisr/test_data/BSDS100/HR
+      io_backend: "disk" # disk or lmdb
+
+    urban100:
+      lq_folder: /home/dsq/nips/datasets/sisr/test_data/Urban100/LRbicx4
+      gt_folder: /home/dsq/nips/datasets/sisr/test_data/Urban100/HR
+      io_backend: "disk" # disk or lmdb
+
+    manga109:
+      lq_folder: /home/dsq/nips/datasets/sisr/test_data/Manga109/LRbicx4
+      gt_folder: /home/dsq/nips/datasets/sisr/test_data/Manga109/HR
+      io_backend: "disk" # disk or lmdb
+
+    div2k_test_path:
+      lq_folder: /home/dsq/nips/datasets/sisr/DIV2K_train_LR_bicubic/X4
+      gt_foler: /home/dsq/nips/datasets/sisr/DIV2K_train_HR
