@@ -14,6 +14,28 @@ SearchPath plugins are automatically discovered and enabled after installation. 
 
 This setup simplifies the management of datasets and enhances the flexibility of configuration management.
 
+
+### Usage
+To install the package, run:
+```
+pip install -e .
+```
+
+Then, execute:
+
+```
+udl_share_conf /path/to/your/conf
+```
+
+In your your_work_cfg.yaml, look for base: xxx, which indicates that you can find the configuration file in the conf directory.
+
+```yaml
+defaults:
+  - base: xxx
+  - _self_
+```
+
+
 ---
 
 Feel free to contact me:  
