@@ -40,3 +40,11 @@ defaults:
 
 Feel free to contact me:  
 **Email**: [Xiao.Wu@mbzuai.ac.ae](mailto:Xiao.Wu@mbzuai.ac.ae)
+
+## License & Copyright
+
+Copyright (c) 2025 Xiao Wu, MBZUAI and UESTC.
+
+This project is open sourced under GNU General Public License v3.0.
+
+
