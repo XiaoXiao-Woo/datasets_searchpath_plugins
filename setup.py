@@ -5,7 +5,7 @@ from setuptools import find_namespace_packages, setup, find_packages
 
 setup(
     name="hydra-udl-searchpath-plugin",
-    version="1.0.0",
+    version="0.0.1",
     author="Xiao Wu",
     author_email="wxwsx1997@gmail.com",
     description="loading datasets conf using Hydra SearchPath plugin",
@@ -23,6 +23,11 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Operating System :: OS Independent",
     ],
+    entry_points={
+        "console_scripts": [
+            "udl_share_conf = customized.link_yaml_files:link_yaml_files",
+        ],
+    },
     install_requires=[
         # consider pinning to a specific major version of Hydra to avoid unexpected problems
         # if a new major version of Hydra introduces breaking changes for plugins.

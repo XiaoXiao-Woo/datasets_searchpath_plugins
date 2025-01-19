@@ -1,10 +1,1 @@
-defaults:
-  - runtime
-
-task: "mhif"
-scale: [1]
-metrics: {"train": "loss", "test": "PSNR"}
-save_fmt: ["mat", "png"]  # options: mat, not mat
-test: "reduce"  # options: reduce, full experiment
-test_samplers_per_gpu: 1
-dataset_type: "Hdf5"
+/home/dsq/nips/conf/base/mhif.yaml
