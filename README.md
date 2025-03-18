@@ -35,7 +35,7 @@ defaults:
   - _self_
 ```
 
-base.yaml
+base/runtime.yaml
 ```yaml
 # * UDL_CIL configuration
 # command: python
